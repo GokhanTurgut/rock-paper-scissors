@@ -15,16 +15,31 @@ function computerPlay() {
     }
 }
 
-function playerPlay() {
-    let playerSelection = prompt("Make your choice! Rock, Paper or Scissors?").toLocaleLowerCase();
+const rockBtn = document.querySelector(".rock");
+const paperBtn = document.querySelector(".paper");
+const scissorsBtn = document.querySelector(".scissors");
 
-    if (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissors") {
-        return playerSelection;
-    }
-    else {
-        alert("Please enter a valid option!");
-        // playerPlay();
-    }
+let computerSelection;
+let playerSelection;
+
+function playerPlay() {
+    rockBtn.addEventListener("click", () => {
+        playerSelection = "rock";
+        computerSelection = computerPlay();
+        playRound(playerSelection, computerSelection);
+    });
+    
+    paperBtn.addEventListener("click", () => {
+        playerSelection = "paper";
+        computerSelection = computerPlay();
+        playRound(playerSelection, computerSelection);
+    });
+
+    scissorsBtn.addEventListener("click", () => {
+        playerSelection = "scissors";
+        computerSelection = computerPlay();
+        playRound(playerSelection, computerSelection);
+    });
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -59,13 +74,7 @@ function game() {
         let computerSelection = computerPlay();
         let playerSelection = playerPlay();
         
-        while (playerSelection === undefined) {
-            playerSelection = playerPlay();
-        }
-        
         playRound(playerSelection, computerSelection);
-
     }
 
 }
-game();
