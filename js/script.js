@@ -42,39 +42,36 @@ function playerPlay() {
     });
 }
 
+const result = document.querySelector(".result");
+const yourScore = document.querySelector(".yourScore");
+const computerScore = document.querySelector(".computerScore");
+
+let yourScoreInt = 0;
+let computerScoreInt = 0;
+
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
-        console.log(`It's a tie you both choose ${playerSelection}!`);
-        console.log(`Score is Player = ${playerScore} and Computer = ${computerScore}`);
+        result.textContent = `It's a tie you both choose ${playerSelection}!`;
     }
     else if ((playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock") || (playerSelection === "scissors" && computerSelection === "paper")) {
-        playerScore += 1;
-        console.log(`Player wins, ${playerSelection} beats ${computerSelection}!`);
-        console.log(`Score is Player = ${playerScore} and Computer = ${computerScore}`);
-
+        result.textContent = `Player wins, ${playerSelection} beats ${computerSelection}!`;
+        yourScoreInt++;
+        yourScore.textContent = yourScoreInt;
     }
     else if ((playerSelection === "rock" && computerSelection === "paper") || (playerSelection === "paper" && computerSelection === "scissors") || (playerSelection === "scissors" && computerSelection === "rock")) {
-        computerScore += 1;
-        console.log(`Computer wins, ${computerSelection} beats ${playerSelection}!`);
-        console.log(`Score is Player = ${playerScore} and Computer = ${computerScore}`);
-
+        result.textContent = `Computer wins, ${computerSelection} beats ${playerSelection}!`;
+        computerScoreInt++;
+        computerScore.textContent = computerScoreInt;
     }
 }
 
-let playerScore = 0;
-let computerScore = 0;
+const restartBtn = document.querySelector(".restartBtn");
 
-function game() {
+restartBtn.addEventListener("click", () => {
+    yourScoreInt = 0;
+    computerScoreInt = 0;
+    yourScore.textContent = yourScoreInt;
+    computerScore.textContent = computerScoreInt;
+})
 
-    playerScore = 0;
-    computerScore = 0;
-
-    for (let roundNumber = 0; roundNumber < 5; roundNumber++) {
-        
-        let computerSelection = computerPlay();
-        let playerSelection = playerPlay();
-        
-        playRound(playerSelection, computerSelection);
-    }
-
-}
+playerPlay();

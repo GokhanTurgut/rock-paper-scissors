@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock-Paper-Scissors</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">    
 </head>
 <body>
     <h1>Welcome stranger, wanna play a game?</h1>
     
-    <div class="question">
-        <button>Yea sure!</button>
-        <button>No, thanks.I don't trust computers!</button>
-    </div>
+    <h3>Make your choice!</h3>
        
     <div class="choice">
         <button class="rock">Rock</button>
@@ -21,16 +21,22 @@
         <button class="scissors">Scissors</button>
     </div>
     
-    <div class="result">
-
-    </div>
+    <div class="result"></div>
     
-    <div class="score">
-        
-        <div class="yourScore">Your Score</div>
-        <div class="compiterScore">Computer Score</div>
+    <div class="scoreContainer">
+
+        <div class="yourScoreContainer">        
+            <div class="yourScoreTxt">Your Score:</div>
+            <div class="yourScore">0</div>       
+        </div>
+    
+        <div class="computerScoreContainer">        
+            <div class="computerScoreTxt">Computer Score:</div>  
+            <div class="computerScore">0</div>
+        </div>
 
     </div>
+
     <div class="restart">
         <button class="restartBtn">Restart Game</button>
     </div>
